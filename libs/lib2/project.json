@@ -1,0 +1,34 @@
+{
+  "root": "libs/lib2",
+  "sourceRoot": "libs/lib2/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/lib2/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib2"],
+      "options": {
+        "jestConfig": "libs/lib2/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/lib2",
+        "tsConfig": "libs/lib2/tsconfig.lib.json",
+        "packageJson": "libs/lib2/package.json",
+        "main": "libs/lib2/src/index.ts",
+        "assets": ["libs/lib2/*.md"]
+      }
+    }
+  },
+  "tags": []
+}
