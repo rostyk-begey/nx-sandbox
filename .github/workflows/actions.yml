@@ -24,6 +24,6 @@ jobs:
           node-version: 'lts/*'
           cache: 'yarn'
       - run: yarn install --frozen-lockfile
-      - run: yarn nx affected --target=version --base=HEAD~1 --head=HEAD --push --baseBranch main
+      - run: yarn nx affected --target=version --push --baseBranch main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
