@@ -21,12 +21,6 @@
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
-      "dependsOn": [
-        {
-          "target": "build",
-          "projects": "dependencies"
-        }
-      ],
       "options": {
         "outputPath": "dist/libs/lib2",
         "tsConfig": "libs/lib2/tsconfig.lib.json",
@@ -42,6 +36,7 @@
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "postTargets": ["lib2:github"],
+        "trackDeps": true,
         "skipProjectChangelog": true
       }
     },
