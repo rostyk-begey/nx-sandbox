@@ -1,7 +1,9 @@
+import * as md5 from 'md5';
+import { lib1 } from '@rbehei-sandbox/lib1';
 import { lib2 } from './lib2';
 
 describe('lib2', () => {
   it('should work', () => {
-    expect(lib2()).toEqual('lib2');
+    expect(lib2()).toEqual(md5('lib2-v4') + lib1());
   });
 });
