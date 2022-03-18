@@ -35,8 +35,7 @@
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "postTargets": ["lib1:github"],
-        "trackDeps": true,
-        "skipProjectChangelog": true
+        "trackDeps": true
       }
     },
     "github": {
