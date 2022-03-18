@@ -18,6 +18,6 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - run: yarn install --frozen-lockfile
-      - run: yarn nx affected --target=version --push --baseBranch master
+      - run: yarn nx affected --target=version --push --baseBranch main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
