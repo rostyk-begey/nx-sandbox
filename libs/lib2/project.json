@@ -21,12 +21,19 @@
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
       "options": {
         "outputPath": "dist/libs/lib2",
         "tsConfig": "libs/lib2/tsconfig.lib.json",
         "packageJson": "libs/lib2/package.json",
         "main": "libs/lib2/src/index.ts",
-        "assets": ["libs/lib2/*.md"]
+        "assets": ["libs/lib2/*.md"],
+        "buildableProjectDepsInPackageJsonType": "dependencies"
       }
     },
     "version": {
