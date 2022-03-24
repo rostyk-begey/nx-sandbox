@@ -18,6 +18,18 @@
         "target": "version",
         "projects": "dependencies"
       }
+    ],
+    "version-beta": [
+      {
+        "target": "version-beta",
+        "projects": "dependencies"
+      }
+    ],
+    "publish": [
+      {
+        "target": "publish",
+        "projects": "dependencies"
+      }
     ]
   },
   "tasksRunnerOptions": {
