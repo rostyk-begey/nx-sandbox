@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.9.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.8.0...lib1-0.9.0) (2022-03-24)
+
+
+### Features
+
+* **lib1:** add some changes to lib1 ([c7ffb31](https://github.com/rostyk-begey/nx-sandbox/commit/c7ffb319e6215aaa2315d422b256bdce20d091bc))
+
 ### [0.8.1-feat-f1.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.8.0...lib1-0.8.1-feat-f1.0) (2022-03-24)
 
 
