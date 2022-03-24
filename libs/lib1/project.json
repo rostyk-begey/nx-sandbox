@@ -44,6 +44,7 @@
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "postTargets": ["lib1:github", "lib1:publish"],
+        "releaseAs": "prerelease",
         "trackDeps": true
       }
     },
