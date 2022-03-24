@@ -35,7 +35,16 @@
       "options": {
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
-        "postTargets": ["lib2:github"],
+        "postTargets": ["lib2:github", "lib2:publish"],
+        "trackDeps": true
+      }
+    },
+    "version-beta": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "postTargets": ["lib2:github", "lib2:publish"],
         "trackDeps": true
       }
     },

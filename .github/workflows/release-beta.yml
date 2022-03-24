@@ -1,0 +1,28 @@
+name: Publish Beta
+
+on:
+  push:
+    branches:
+      - feature/*
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: git config
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          cache: 'yarn'
+      - run: yarn install --frozen-lockfile
+      - run: yarn nx affected --target=version-beta --preid=${GITHUB_REF##*/} --all --push --baseBranch main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
