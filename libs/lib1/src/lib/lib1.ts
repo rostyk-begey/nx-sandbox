@@ -1,3 +1,3 @@
 export function lib1(): string {
-  return 'lib1-v9-beta-1';
+  return 'lib1-v10';
 }
