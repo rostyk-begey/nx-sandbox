@@ -44,7 +44,7 @@ jobs:
       - name: yarn install
         shell: bash
         run: yarn --frozen-lockfile --no-progress --non-interactive --prefer-offline
-      - run: npx nx affected --target=version-beta --preid=${GITHUB_REF##*/} --all --push --baseBranch main
+      - run: npx nx affected --target=version-beta --preid=${GITHUB_REF##*/} --all --push --baseBranch ${GITHUB_REF#refs/heads/}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
