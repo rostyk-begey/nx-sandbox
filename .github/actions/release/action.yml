@@ -1,0 +1,33 @@
+name: Release
+
+description: Release packages
+
+inputs:
+  preid:
+    description: Prerelease identifier
+    required: false
+    default: 'undefined'
+  release_as:
+    description:
+      Option allows you to release a project with a version that is incremented by a specified level.
+      Level can be one of `major`, `minor`, `patch`, `premajor`, `preminor`, `prepatch`, or `prerelease`, for instance.
+    required: false
+    default: 'undefined'
+  base_branch:
+    description: Push against git base branch
+    required: false
+    default: 'main'
+
+runs:
+  using: composite
+  steps:
+    - name: Check npm credentials
+      shell: bash
+      run: npm whoami
+
+    - name: Publish to NPM
+      shell: bash
+      # Use npx instead of yarn because yarn automagically sets NPM_* environment variables
+      # like NPM_CONFIG_REGISTRY so npm publish ends up ignoring the .npmrc file
+      # which is set up by `setup-node` action.
+      run: npx nx affected --target version --push --baseBranch ${{ inputs.base_branch }} --releaseAs ${{ inputs.release_as }} --preid=${{ inputs.preid }}
