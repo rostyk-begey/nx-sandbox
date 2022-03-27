@@ -16,6 +16,11 @@ jobs:
         node_version: [14, 16]
 
     steps:
+      - name: Get code to get access to custom our actions
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Install Dependencies
         uses: ./.github/actions/setup
         with:
@@ -36,6 +41,11 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
+      - name: Get code to get access to custom our actions
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Install Dependencies
         uses: ./.github/actions/setup
 
@@ -54,6 +64,11 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
+      - name: Get code to get access to custom our actions
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
       - name: Install Dependencies
         uses: ./.github/actions/setup
 
