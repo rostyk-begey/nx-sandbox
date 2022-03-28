@@ -1,7 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "common": "libs/common",
     "lib1": "libs/lib1",
     "lib2": "libs/lib2"
   }
