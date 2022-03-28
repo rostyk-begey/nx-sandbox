@@ -1,12 +1,8 @@
 name: Test
-description: Test stage
+description: Test code
 runs:
   using: composite
   steps:
-    - name: Lint
-      shell: bash
-      run: yarn nx affected:lint
-
     - name: Test
       shell: bash
       run: yarn nx affected:test
