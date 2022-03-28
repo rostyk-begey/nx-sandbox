@@ -2,6 +2,11 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.5.1](https://github.com/rostyk-begey/nx-sandbox/compare/lib2-0.5.1-beta.0...lib2-0.5.1) (2022-03-28)
+
+### Dependency Updates
+
+* `lib1` updated to version `0.10.1`
 ### [0.5.1-beta.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib2-0.5.1-main.0...lib2-0.5.1-beta.0) (2022-03-28)
 
 ### [0.5.1-main.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib2-0.5.0...lib2-0.5.1-main.0) (2022-03-28)
