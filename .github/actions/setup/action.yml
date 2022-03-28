@@ -7,6 +7,12 @@ inputs:
     description: Node.js version
     required: false
     default: '16'
+  main-branch-name:
+    description: |
+      The "main" branch of repository (the base branch which is targeted with PRs).
+      Common names for this branch include main and master.
+    required: false
+    default: 'main'
 
 runs:
   using: composite
@@ -23,6 +29,8 @@ runs:
 
     - name: Derive appropriate SHAs for base and head for `nx affected` commands
       uses: nrwl/nx-set-shas@v2
+      with:
+        main-branch-name: ${{ inputs.main-branch-name }}
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
