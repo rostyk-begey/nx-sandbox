@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-sandbox/common": ["libs/common/src/index.ts"],
       "@rbehei-sandbox/lib1": ["libs/lib1/src/index.ts"],
       "@rbehei-sandbox/lib2": ["libs/lib2/src/index.ts"]
     }
