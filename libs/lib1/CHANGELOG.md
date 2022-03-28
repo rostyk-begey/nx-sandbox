@@ -2,6 +2,13 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.10.1-main.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.10.0...lib1-0.10.1-main.0) (2022-03-28)
+
+
+### Features
+
+* implement f3 feature ([#5](https://github.com/rostyk-begey/nx-sandbox/issues/5)) ([73ed3b0](https://github.com/rostyk-begey/nx-sandbox/commit/73ed3b0405db2e5baa77c4f90fb6f17f0de74677))
+
 ## [0.10.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.9.0...lib1-0.10.0) (2022-03-25)
 
 
