@@ -2,8 +2,6 @@ name: Release
 
 on:
   pull_request:
-    types:
-      - closed
     branches:
       - main
       - release
@@ -27,11 +25,16 @@ jobs:
 
       - name: Install Dependencies
         uses: ./.github/actions/setup
+        with:
+          main-branch-name: ${{ github.base_ref }}
 
       - name: Release
         uses: ./.github/actions/release
         with:
           base_branch: ${{ github.base_ref }}
+        env:
+          NX_BASE: ${{ github.base_ref }}
+          NX_HEAD: ${{ github.head_ref }}
 
   prerelease:
     runs-on: ubuntu-latest
@@ -58,3 +61,6 @@ jobs:
           release_as: prerelease
           preid: 'beta'
           base_branch: ${{ github.base_ref }}
+        env:
+          NX_BASE: ${{ github.base_ref }}
+          NX_HEAD: ${{ github.head_ref }}
