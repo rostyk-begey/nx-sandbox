@@ -54,6 +54,8 @@ jobs:
 
       - name: Install Dependencies
         uses: ./.github/actions/setup
+        with:
+          main-branch-name: ${{ github.base_ref }}
 
       - name: Release
         uses: ./.github/actions/release
