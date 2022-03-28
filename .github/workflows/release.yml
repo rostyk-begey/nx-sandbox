@@ -1,9 +1,7 @@
 name: Release
 
 on:
-  pull_request:
-    types:
-      - closed
+  push:
     branches:
       - main
       - release
@@ -12,7 +10,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
 
-    if: github.base_ref == 'release' && github.event.pull_request.merged == true
+    if: github.ref_name == 'release' && github.event.pull_request.merged == true
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -27,16 +25,18 @@ jobs:
 
       - name: Install Dependencies
         uses: ./.github/actions/setup
+        with:
+          main-branch-name: ${{ github.base_ref }}
 
       - name: Release
         uses: ./.github/actions/release
         with:
-          base_branch: ${{ github.base_ref }}
+          base_branch: ${{ github.ref_name }}
 
   prerelease:
     runs-on: ubuntu-latest
 
-    if: github.base_ref == 'main' && github.event.pull_request.merged == true
+    if: github.ref_name == 'main' && github.event.pull_request.merged == true
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -57,4 +57,4 @@ jobs:
         with:
           release_as: prerelease
           preid: 'beta'
-          base_branch: ${{ github.base_ref }}
+          base_branch: ${{ github.ref_name }}
