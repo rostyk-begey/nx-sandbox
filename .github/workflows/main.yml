@@ -83,5 +83,5 @@ jobs:
         uses: ./.github/actions/release
         with:
           release_as: prerelease
-          preid: ${GITHUB_REF##*/}
+          preid: 'beta'
           base_branch: ${GITHUB_REF#refs/heads/}
