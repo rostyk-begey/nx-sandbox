@@ -1,45 +1,16 @@
-name: Test & Release
+name: Release
 
 on:
   push:
     branches:
       - main
-      - master
-      - release
-  pull_request:
-    branches:
-      - main
-      - master
       - release
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node_version: [14, 16]
-
-    steps:
-      - name: Get code to get access to custom our actions
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Install Dependencies
-        uses: ./.github/actions/setup
-        with:
-          node-version: ${{ matrix.node_version }}
-
-      - name: Test
-        uses: ./.github/actions/test
-
   release:
     runs-on: ubuntu-latest
 
-    if: github.ref == 'refs/heads/release' && github.event_name == 'push'
-
-    needs: [test]
+    if: github.base_ref == 'refs/heads/release' && github.event.pull_request.merged == true
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -58,14 +29,12 @@ jobs:
       - name: Release
         uses: ./.github/actions/release
         with:
-          base_branch: ${GITHUB_REF#refs/heads/}
+          base_branch: 'release'
 
   prerelease:
     runs-on: ubuntu-latest
 
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-
-    needs: [test]
+    if: github.base_ref == 'refs/heads/main' && github.event.pull_request.merged == true
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -86,4 +55,4 @@ jobs:
         with:
           release_as: prerelease
           preid: 'beta'
-          base_branch: ${GITHUB_REF#refs/heads/}
+          base_branch: 'main'
