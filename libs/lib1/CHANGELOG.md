@@ -2,6 +2,14 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+### [0.10.2-beta.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.10.1...lib1-0.10.2-beta.0) (2022-03-29)
+
+
+### Features
+
+* implement a f5 feature ([#16](https://github.com/rostyk-begey/nx-sandbox/issues/16)) ([d17047a](https://github.com/rostyk-begey/nx-sandbox/commit/d17047a8a443d3db14b54152e1158bfe69fb9e72))
+* implement feature f4 ([#10](https://github.com/rostyk-begey/nx-sandbox/issues/10)) ([08a96a7](https://github.com/rostyk-begey/nx-sandbox/commit/08a96a7d5e0690a005a0a9846caf35f5b2dba2f7))
+
 ### [0.10.1](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.10.1-beta.0...lib1-0.10.1) (2022-03-28)
 
 ### [0.10.1-beta.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.10.1-main.0...lib1-0.10.1-beta.0) (2022-03-28)
