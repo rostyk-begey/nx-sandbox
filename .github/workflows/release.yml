@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - main
-      - release
+  pull_request:
+    branches:
+      - main
 
 jobs:
   release:
     runs-on: ubuntu-latest
 
-    if: github.ref_name == 'release'
+    if: github.event_name == 'push'
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -25,8 +27,6 @@ jobs:
 
       - name: Install Dependencies
         uses: ./.github/actions/setup
-        with:
-          main-branch-name: ${{ github.base_ref }}
 
       - name: Release
         uses: ./.github/actions/release
@@ -36,7 +36,7 @@ jobs:
   prerelease:
     runs-on: ubuntu-latest
 
-    if: github.ref_name == 'main'
+    if: github.event_name == 'pull_request'
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -57,4 +57,4 @@ jobs:
         with:
           release_as: prerelease
           preid: 'beta'
-          base_branch: ${{ github.ref_name }}
+          base_branch: ${{ github.head_ref }}
