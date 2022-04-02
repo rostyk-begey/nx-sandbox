@@ -8,6 +8,7 @@ on:
   pull_request:
     branches:
       - main
+      - feature/*
 
 jobs:
   release:
@@ -37,7 +38,7 @@ jobs:
   prerelease:
     runs-on: ubuntu-latest
 
-    if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/feature/')
+    if: startsWith(github.head_ref, 'feature/')
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -58,4 +59,4 @@ jobs:
         with:
           release_as: prerelease
           preid: 'beta'
-          base_branch: ${{ github.ref }}
+          base_branch: ${{ github.head_ref }}
