@@ -33,7 +33,7 @@ runs:
       run: >
         npx nx affected
         --push
-        --target version
+        --target ${{ inputs.release_as == "undefined" && "version" || "version-beta" }}
         --baseBranch ${{ inputs.base_branch }}
         $( [[ "${{ inputs.release_as }}" != "undefined" ]] && echo "--releaseAs ${{ inputs.release_as }}" )
         --preid ${{ inputs.preid }}
