@@ -2,6 +2,16 @@
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
 
+## [0.6.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib2-0.5.2-beta.0...lib2-0.6.0) (2022-04-04)
+
+### Dependency Updates
+
+* `lib1` updated to version `0.12.0`
+
+### Features
+
+* implement f6 feature ([#19](https://github.com/rostyk-begey/nx-sandbox/issues/19)) ([b59ac91](https://github.com/rostyk-begey/nx-sandbox/commit/b59ac91bf1baeb90e7e40bbac248d2f4f2992ecd))
+
 ### [0.5.1](https://github.com/rostyk-begey/nx-sandbox/compare/lib2-0.5.1-beta.0...lib2-0.5.1) (2022-03-28)
 
 ### Dependency Updates
