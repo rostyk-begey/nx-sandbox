@@ -4,6 +4,8 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 ### [0.11.1-feat-f7.1](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.11.1-feat-f7.0...lib1-0.11.1-feat-f7.1) (2022-04-04)
 
+### [0.11.1-feat-f7.1](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.11.1-feat-f7.0...lib1-0.11.1-feat-f7.1) (2022-04-04)
+
 ### [0.11.1-feat-f7.0](https://github.com/rostyk-begey/nx-sandbox/compare/lib1-0.11.0...lib1-0.11.1-feat-f7.0) (2022-04-04)
 
 
