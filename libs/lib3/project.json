@@ -1,0 +1,66 @@
+{
+  "root": "libs/lib3",
+  "sourceRoot": "libs/lib3/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/lib3/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib3"],
+      "options": {
+        "jestConfig": "libs/lib3/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/lib3",
+        "tsConfig": "libs/lib3/tsconfig.lib.json",
+        "packageJson": "libs/lib3/package.json",
+        "main": "libs/lib3/src/index.ts",
+        "assets": ["libs/lib3/*.md"]
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "postTargets": ["lib3:github", "lib3:publish"],
+        "trackDeps": true
+      }
+    },
+    "version-beta": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "postTargets": ["lib3:publish"],
+        "skipProjectChangelog": true,
+        "trackDeps": true
+      }
+    },
+    "github": {
+      "executor": "@jscutlery/semver:github",
+      "options": {
+        "tag": "${tag}",
+        "notes": "${notes}"
+      }
+    },
+    "publish": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  },
+  "tags": []
+}
