@@ -38,7 +38,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: github.event_name != 'workflow_dispatch' && startsWith(github.ref, 'refs/heads/feature/')
+    if: github.event_name == 'workflow_dispatch' && startsWith(github.ref, 'refs/heads/feature/')
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -58,5 +58,5 @@ jobs:
         uses: ./.github/actions/release
         with:
           release_as: prerelease
-          preid: ${GITHUB_HEAD_REF##*/}
-          base_branch: ${GITHUB_HEAD_REF}
+          preid: ${GITHUB_REF##*/}
+          base_branch: ${GITHUB_REF}
