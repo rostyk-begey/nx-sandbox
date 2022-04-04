@@ -4,6 +4,6 @@ import { lib2 } from './lib2';
 
 describe('lib2', () => {
   it('should work', () => {
-    expect(lib2()).toEqual(md5('lib2-v6') + lib1());
+    expect(lib2()).toEqual(md5('lib2-v7') + lib1());
   });
 });
