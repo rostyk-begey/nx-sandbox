@@ -44,6 +44,7 @@
         "preset": "conventional",
         "commitMessageFormat": "chore(${projectName}): release version ${version}",
         "postTargets": ["lib3:publish"],
+        "skipProjectChangelog": true,
         "trackDeps": true
       }
     },
