@@ -39,6 +39,15 @@
         "trackDeps": true
       }
     },
+    "version-beta": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventional",
+        "commitMessageFormat": "chore(${projectName}): release version ${version}",
+        "postTargets": ["lib2:publish"],
+        "trackDeps": true
+      }
+    },
     "github": {
       "executor": "@jscutlery/semver:github",
       "options": {
