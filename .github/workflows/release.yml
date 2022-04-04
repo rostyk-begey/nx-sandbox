@@ -1,59 +1,12 @@
-name: Main
+name: Release
 
 on:
   push:
     branches:
       - main
-      - feature/*
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  lint:
-    name: Lint
-
-    runs-on: ubuntu-latest
-
-    if: github.event_name == 'pull_request'
-
-    steps:
-      - name: Get code to get access to custom our actions
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Install Dependencies
-        uses: ./.github/actions/setup
-
-      - name: Lint
-        uses: ./.github/actions/lint
-
-  test:
-    name: Test
-
-    runs-on: ubuntu-latest
-
-    if: github.event_name == 'pull_request'
-
-    strategy:
-      matrix:
-        node_version: [ 14, 16 ]
-
-    steps:
-      - name: Get code to get access to custom our actions
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
-      - name: Install Dependencies
-        uses: ./.github/actions/setup
-        with:
-          node-version: ${{ matrix.node_version }}
-
-      - name: Test
-        uses: ./.github/actions/test
-
   release:
     name: Release
 
@@ -85,9 +38,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    if: github.event_name == 'pull_request' && startsWith(github.head_ref, 'feature/')
-
-    needs: [ lint, test ]
+    if: github.event_name != 'workflow_dispatch' && startsWith(github.ref, 'refs/heads/feature/')
 
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -108,4 +59,4 @@ jobs:
         with:
           release_as: prerelease
           preid: ${GITHUB_HEAD_REF##*/}
-          base_branch: origin/${GITHUB_HEAD_REF}
+          base_branch: ${GITHUB_HEAD_REF}
