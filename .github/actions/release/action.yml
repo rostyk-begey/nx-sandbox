@@ -30,10 +30,12 @@ runs:
       # Use npx instead of yarn because yarn automagically sets NPM_* environment variables
       # like NPM_CONFIG_REGISTRY so npm publish ends up ignoring the .npmrc file
       # which is set up by `setup-node` action.
+      env:
+        TARGET: ${{ inputs.release_as == 'undefined' && 'version' || 'version-beta' }}
       run: >
         npx nx affected
         --push
-        --target version
+        --target $TARGET
         --baseBranch ${{ inputs.base_branch }}
         $( [[ "${{ inputs.release_as }}" != "undefined" ]] && echo "--releaseAs ${{ inputs.release_as }}" )
         --preid ${{ inputs.preid }}
