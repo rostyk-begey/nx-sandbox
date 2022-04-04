@@ -34,6 +34,7 @@ runs:
         TARGET: ${{ inputs.release_as == 'undefined' && 'version' || 'version-beta' }}
       run: >
         npx nx affected
+        --parallel 1
         --push
         --target $TARGET
         --baseBranch ${{ inputs.base_branch }}
