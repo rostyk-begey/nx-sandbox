@@ -108,4 +108,4 @@ jobs:
         with:
           release_as: prerelease
           preid: ${GITHUB_HEAD_REF##*/}
-          base_branch: ${GITHUB_HEAD_REF}
+          base_branch: origin/${GITHUB_HEAD_REF}
